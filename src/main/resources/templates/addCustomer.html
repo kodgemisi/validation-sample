@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html th:lang="${#locale.language}"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <title>ValidationExample</title>
+    <title>Spring Validation Example </title>
+</head>
+
+<body>
+<form th:action="@{/}" th:object="${customer}" th:method="post">
+    <div>
+        <label>Isim</label>
+        <input type="text" th:field="*{firstName}"/>
+        <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+    </div>
+    <div>
+        <label>Soyisim</label>
+        <input type="text" th:field="*{surname}"/>
+        <div th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></div>
+    </div>
+    <div>
+        <label>Yaş</label>
+        <input type="text" th:field="*{age}"/>
+        <div th:if="${#fields.hasErrors('age')}" th:errors="*{age}" value=""></div>
+    </div>
+    <div>
+        <label>Email</label>
+        <input type="text" th:field="*{email}"/>
+        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+    </div>
+    <div>
+        <label>Telefon</label>
+        <input type="text" th:field="*{phone}"/>
+        <div th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></div>
+    </div>
+    <div>
+        <button type="submit">Ekle</button>
+    </div>
+</form>
+
+</body>
+</html>
